@@ -40,24 +40,10 @@ EmployeesRouter
         EmployeesServices.getEmployeeById(req.app.get("db"), req.params.id)
             .then( data => res.status(200).json(data));
     })
-    .patch(( req, res)=>{
-        const {first_name, last_name, position, wage, pin} = req.body;
+    .patch(( req, res)=>{     
 
-        const updateEmployee = {
-            first_name,
-            last_name,
-            position,
-            wage,
-            pin
-        };
 
-        for( const [key, value] of Object.entries(updateEmployee)){
-            if(value == null){
-                return res.status(400).json({ error: `Missing ${key} in body request.`})
-            };
-        };
-
-        EmployeesServices.updateEmployee( req.app.get("db"), updateEmployee, req.params.id)
+        EmployeesServices.updateEmployee( req.app.get("db"), req.body, req.params.id)
             .then( data => res.status(204).end());
     })
     .delete(( req, res)=>{

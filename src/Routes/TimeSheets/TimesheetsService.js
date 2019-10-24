@@ -5,11 +5,11 @@ const TimesheetsService = {
     getTimesheetByID(db, id){
         return db.select("*").from("timesheets").where({id}).first();
     },
-    insertNewTimesheet(db, employee){
-        return db.insert(employee).into("timesheets");
+    insertNewTimesheet(db, timesheet){
+        return db.insert(timesheet).into("timesheets");
     },
-    updateTimesheet(db, employeeUpdate, id){
-        return db.update(employeeUpdate).from("timesheets").where({id});
+    updateTimesheet(db, timesheetUpdate, id){
+        return db.update(timesheetUpdate).from("timesheets").where({id});
     },
     deleteTimesheet(db, id){
         return db.delete().from("timesheets").where({id});

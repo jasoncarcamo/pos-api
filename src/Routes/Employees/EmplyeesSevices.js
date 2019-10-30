@@ -3,7 +3,7 @@ const EmplyeesServices = {
         return db.select("*").from("employees").returning("*");
     },
     getEmployeeById( db, id){
-        return db.select("*").from("employees").where({id}).returning("*").then(([employee]) => employee);
+        return db.select("*").from("employees").where({id}).first();
     },
     insertNewEmployee( db, employee){
         return db.insert(employee).into("employees");

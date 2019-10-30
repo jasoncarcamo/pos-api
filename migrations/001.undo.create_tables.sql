@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS activeorders;
 DROP TABLE IF EXISTS menuItems;
 DROP TABLE IF EXISTS menu;
 DROP TABLE IF EXISTS timesheets;

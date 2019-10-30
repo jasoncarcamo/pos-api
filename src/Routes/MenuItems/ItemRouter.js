@@ -5,7 +5,7 @@ const ItemService = require("./ItemsService");
 
 //ItemRouter is imported in /src/App/Menu/MenuRouter to continue from MenuRouters' route
 ItemRouter
-    .route("/item")
+    .route("/items")
     .all(express.json())
     .all(express.urlencoded({ extended: true}))
     .get((req, res)=>{
@@ -39,7 +39,7 @@ ItemRouter
     })
 
 ItemRouter
-    .route("/item/:id")
+    .route("/items/:id")
     .all(express.json())
     .all(express.urlencoded({ extended: true}))
     .get((req, res)=> {

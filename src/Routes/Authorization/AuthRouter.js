@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const AuthRouter = express.Router();
 const Authservice = require("./AuthService");
@@ -28,7 +29,7 @@ AuthRouter
                     .then( match => {
 
                         if(!match){
-                            return res.status(400).json({ error: "Incorrect pin"})
+                            return res.status(400).json({ error: "Incorrect pin"});
                         };
 
                         const subject = employee.id;

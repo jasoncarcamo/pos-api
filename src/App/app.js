@@ -16,12 +16,6 @@ app.use(morgan(morganSetting));
 app.use(cors());
 app.use(helmet());
 
-app.use("/api", cors(), EmployeesRouter);
-app.use("/api", TimesheetsRouter);
-app.use("/api", MenuRouter);
-app.use("/api", AuthRouter);
-app.use("/api", ActiveRouter);
-
 app.use(function errorHandler(error, req, res, next) {
     let response
     if (NODE_ENV === 'production') {
@@ -33,6 +27,12 @@ app.use(function errorHandler(error, req, res, next) {
     console.error(error)
     res.status(500).json(response)
   })
+
+app.use("/api", cors(), EmployeesRouter);
+app.use("/api", TimesheetsRouter);
+app.use("/api", MenuRouter);
+app.use("/api", AuthRouter);
+app.use("/api", ActiveRouter);
 
 app.use("/", (req, res)=> {
     return res.status(200).send("Working!");

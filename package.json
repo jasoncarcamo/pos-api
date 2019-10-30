@@ -2,7 +2,7 @@
   "name": "pos-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/App/server.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -20,6 +20,7 @@
     "postgrator-cli": "^3.3.0"
   },
   "scripts": {
+    "start": "node ./src/App/server.js",
     "migrate": "postgrator --config ./postgrate-config.js",
     "dev": "nodemon ./src/App/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"

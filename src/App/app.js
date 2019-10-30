@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -8,7 +9,6 @@ const TimesheetsRouter = require("../Routes/TimeSheets/TimesheetsRouter");
 const MenuRouter = require("../Routes/Menu/MenuRouter");
 const AuthRouter = require("../Routes/Authorization/AuthRouter");
 const ActiveRouter = require("../Routes/active-orders/ActiveRouter");
-const {requireAuth} = require("../middleware/jwt-auth");
 
 app.use(morgan("tiny"));
 app.use(cors());
@@ -19,6 +19,18 @@ app.use("/api", TimesheetsRouter);
 app.use("/api", MenuRouter);
 app.use("/api", AuthRouter);
 app.use("/api", ActiveRouter);
+
+app.use(function errorHandler(error, req, res, next) {
+    let response
+    if (NODE_ENV === 'production') {
+      response = { error: 'Server error' }
+    } else {
+      
+      response = { error: error.message, object: error }
+    }
+    console.error(error)
+    res.status(500).json(response)
+  })
 
 app.use("/", (req, res)=> {
     return res.status(200).send("Working!");

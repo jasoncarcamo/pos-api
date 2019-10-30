@@ -36,10 +36,10 @@ AuthRouter
                         const payload = {user: employee.id};
 
                         if(employee.id == "1"){
-                            return res.status(200).json({ adminToken: Authservice.createJwt(subject, payload)});
+                            return res.status(201).json({ adminToken: Authservice.createJwt(subject, payload)});
                         };
 
-                        return res.status(200).json({ employee: dbEmployee
+                        return res.status(201).json({ employee: dbEmployee
                         });
 
                     });

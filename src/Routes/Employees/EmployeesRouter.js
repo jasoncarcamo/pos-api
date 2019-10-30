@@ -6,8 +6,6 @@ const {requireAuth} = require("../../middleware/jwt-auth");
 
 EmployeesRouter
     .route("/employees")
-    .all(requireAuth)
-    .all(requireAuth)
     .all(express.json())
     .all(express.urlencoded({ extended: true}))
     .get((req, res)=>{        

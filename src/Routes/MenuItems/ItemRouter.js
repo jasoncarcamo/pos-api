@@ -75,7 +75,7 @@ ItemRouter
                     return res.status(400).json({ error: "No item found to update"});
                 };
 
-                return res.status(204).end();
+                return res.status(200).end();
             })
     })
     .delete((req, res)=> {

@@ -65,7 +65,7 @@ MenuRouter
                     return res.status(400).json({ error: "No menu found."})
                 };
 
-                return res.status(204).end();
+                return res.status(200).end();
             });
 
     })

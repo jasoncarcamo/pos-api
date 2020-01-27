@@ -44,7 +44,7 @@ TimesheetsRouter
 
                         TimesheetsService.updateTimesheet(req.app.get("db"), req.body, req.params.id, sheet.date)
                         .then( data =>{
-                            return res.status(204).end()
+                            return res.status(200).end()
                         });
 
                     };             
@@ -56,7 +56,7 @@ TimesheetsRouter
     .delete((req, res)=>{
         TimesheetsService.deleteTimesheet(req.app.get("db"), req.params.id)
             .then(data =>{
-                return res.status(204).end();
+                return res.status(200).end();
             })
     })
 

@@ -66,7 +66,7 @@ EmployeesRouter
                 }
 
                 EmployeesServices.updateEmployee( req.app.get("db"), req.body, req.params.id)
-                    .then( data => res.status(204).end());
+                    .then( data => res.status(200).end());
             })
     })
     .delete(( req, res)=>{

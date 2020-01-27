@@ -39,9 +39,7 @@ AuthRouter
                             return res.status(201).json({ adminToken: Authservice.createJwt(subject, payload)});
                         };
 
-                        return res.status(201).json({ employee: dbEmployee
-                        });
-
+                        return res.status(201).json({ employee: dbEmployee });
                     });
             });
     });
